@@ -51,20 +51,13 @@ def parse_dict(secrets):
 		parsedSecret += '\n' 
 	return parsedSecret
 
-def send_to_slack(result): # Send to slack
-	webhook_url = sys.argv[3]
-	data = {'text':'Secrets Detected in Code', 'blocks': [ { 'type':'section', 'text': { 'type':'mrkdwn', 'text': result}}, {'type':'section', 'text': {'type':'mrkdwn','text':'#TODO: Commit URL' }}] , 'username': 'ci-infosec-alerts', 'icon_emoji':'key'}
-	requests.post(webhook_url, json=data)				
-		
-
-	
 
 
-if len(sys.argv) != 4:
-	print '[-] Usage: python ' + sys.argv[0] + ' <Git-secrets-file> <Detect-secrets-file> <Slack_web_token>'
+if len(sys.argv) != 3:
+	print '[-] Usage: python ' + sys.argv[0] + ' <Git-secrets-file> <Detect-secrets-file> '
 	sys.exit(1)
+	
 parse_git_secrets(sys.argv[1])
 parse_detect_secrets(sys.argv[2])
 parsedSecret =  parse_dict(secrets)
 print parsedSecret
-#send_to_slack(parsedSecret)
