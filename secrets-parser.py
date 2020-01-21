@@ -66,4 +66,5 @@ if len(sys.argv) != 4:
 parse_git_secrets(sys.argv[1])
 parse_detect_secrets(sys.argv[2])
 parsedSecret =  parse_dict(secrets)
-send_to_slack(parsedSecret)
+print parsedSecret
+#send_to_slack(parsedSecret)
