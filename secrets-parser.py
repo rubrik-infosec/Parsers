@@ -63,7 +63,7 @@ def send_to_slack(result): # Send to slack
 if len(sys.argv) != 4:
 	print '[-] Usage: python ' + sys.argv[0] + ' <Git-secrets-file> <Detect-secrets-file> <Slack_web_token>'
 	sys.exit(1)
-parse_git_secrets("git-secrets")
-parse_detect_secrets("detect-secrets")
+parse_git_secrets(sys.argv[1])
+parse_detect_secrets(sys.argv[2])
 parsedSecret =  parse_dict(secrets)
 send_to_slack(parsedSecret)
