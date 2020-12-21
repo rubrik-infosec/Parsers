@@ -1,4 +1,4 @@
-#!/usr/bin/python 
+#!/usr/bin/python3 
 import json
 import sys
 import requests
@@ -54,10 +54,10 @@ def parse_dict(secrets):
 
 
 if len(sys.argv) != 3:
-	print '[-] Usage: python ' + sys.argv[0] + ' <Git-secrets-file> <Detect-secrets-file> '
+	print('[-] Usage: python ' + sys.argv[0] + ' <Git-secrets-file> <Detect-secrets-file> ')
 	sys.exit(1)
 	
 parse_git_secrets(sys.argv[1])
 parse_detect_secrets(sys.argv[2])
 parsedSecret =  parse_dict(secrets)
-print parsedSecret
+print(parsedSecret)
