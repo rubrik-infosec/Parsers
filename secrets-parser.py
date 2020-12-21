@@ -19,7 +19,7 @@ def parse_git_secrets(filename):
 	for secret in secretList:
 		data =  secret.split(":") #['test.py', '4', 'aws_access = "AKIAZ2NIUIV5UD5OVOCO"']
 		if len(data) >2:
-			if secrets.has_key(data[0]) :
+			if data[0] in secrets:
 				secrets[data[0]].append({data[1]: data[2]})
 			else:
 				secrets[data[0]] = [] 
@@ -35,7 +35,7 @@ def parse_detect_secrets(filename):
 		for secret in secretList:
 			lineNumber = secret['line_number']
 			secretType = secret['type']
-			if secrets.has_key(file):
+			if file in secrets:
 				secrets[file].append({lineNumber: secretType})
 			else:
 				secrets[file] = []
