@@ -47,7 +47,7 @@ def parse_dict(secrets):
 	for file in keys:
 		parsedSecret += 'File: ' + file  +  "\n"
 		for vulns in secrets[file]:
-			parsedSecret += 'LineNumber: ' + str(vulns.keys()[0]) + ' : ' + vulns[vulns.keys()[0]] + '\n'
+			parsedSecret += 'LineNumber: ' + str(list(vulns.keys())[0]) + ' : ' + vulns[list(vulns.keys())[0]] + '\n'
 		parsedSecret += '\n' 
 	return parsedSecret
 
