@@ -43,7 +43,7 @@ def parse_detect_secrets(filename):
 
 def parse_dict(secrets):
 	parsedSecret = '' # This will contain the parsed Dict data
-	keys = secrets.keys()
+	keys = list(secrets.keys())
 	for file in keys:
 		parsedSecret += 'File: ' + file  +  "\n"
 		for vulns in secrets[file]:
